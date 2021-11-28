@@ -1,0 +1,40 @@
+
+syntax = "proto3";
+package simonsays;
+
+service SimonSays {
+    rpc Game(stream Request) returns (stream Response) {}
+}
+
+message Request {
+    //A Player of the Simon says game.
+    message Player {
+        string id = 1;
+    }
+
+    oneof event {
+        Player join = 1;
+        Color press = 2;
+    }
+}
+
+message Response {
+    enum State {
+        BEGIN = 0;
+        START_TURN = 1;
+        STOP_TURN = 2;
+        WIN = 3;
+        LOSE = 4;
+    }
+    oneof event {
+        State turn = 1;
+        Color lightup = 2;
+    }
+}
+
+enum Color {
+    RED  = 0;
+    GREEN = 1;
+    YELLOW = 2;
+    BLUE = 3;
+}
