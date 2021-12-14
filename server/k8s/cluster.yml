@@ -1,0 +1,4 @@
+resources:
+  - name: simon-rust-server
+    type: container.v1.cluster
+    properties:
