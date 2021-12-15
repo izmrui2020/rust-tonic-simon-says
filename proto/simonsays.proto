@@ -3,10 +3,10 @@ syntax = "proto3";
 package simonsays;
 
 service SimonSays {
-    rpc Game(stream Request) returns (stream Response) {}
+    rpc Game(stream SimonRequest) returns (stream SimonResponse) {}
 }
 
-message Request {
+message SimonRequest {
     //A Player of the Simon says game.
     message Player {
         string id = 1;
@@ -19,7 +19,7 @@ message Request {
     }
 }
 
-message Response {
+message SimonResponse {
     enum State {
         BEGIN = 0;
         START_TURN = 1;

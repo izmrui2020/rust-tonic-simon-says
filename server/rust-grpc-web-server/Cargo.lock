@@ -563,7 +563,6 @@ dependencies = [
 name = "rust-grpc-web-server"
 version = "0.1.0"
 dependencies = [
- "anyhow",
  "prost",
  "tokio",
  "tonic",
